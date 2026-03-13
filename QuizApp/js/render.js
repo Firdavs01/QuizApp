@@ -1,6 +1,7 @@
 "use strict";
 
 import { containerElement } from "./elements.js";
+import { questions } from "./api.js";
 
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -10,8 +11,10 @@ function shuffle(arr) {
   return arr;
 }
 
-function render(questions) {
-  containerElement.innerHTML = questions
+function render(index) {
+  if (index < questions.length) {
+  
+  containerElement.innerHTML = questions[index]
     .map((question, questionIndex) => {
       const answers = shuffle([
         question.correct_answer,
@@ -37,6 +40,7 @@ function render(questions) {
     })
     .join("");
   document.body.appendChild(containerElement);
+  }
 }
 
 export { render };
