@@ -1,6 +1,6 @@
 "use strict"
 
-import { render } from "./render"
+import { render } from "./render.js"
 
 let questions = []
 let currentIndex = 0
@@ -15,6 +15,7 @@ async function getQuestions() {
         const data = await response.json()
         questions = data.results
         render(currentIndex)
+        return questions
     } catch(err) {
         console.log("Мы не нашли подходящий вам файл", err)
         throw err

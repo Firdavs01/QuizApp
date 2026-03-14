@@ -11,7 +11,7 @@ startBtnElement.addEventListener("click", () => {
 async function showQuestion() {
     try {
         const question = await getQuestions()
-        render(question)
+        render(0)
     } catch(err) {
         containerElement.innerHTML = `<p>Error loading. Please repeat after few minuts</p>`
     }
