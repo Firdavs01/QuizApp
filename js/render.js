@@ -2,6 +2,7 @@
 
 import { containerElement } from "./elements.js";
 import { questions } from "./api.js";
+import { checkAnswer } from "./checkAnswer.js";
 
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -34,9 +35,10 @@ function render(index) {
     </ul>
     <button id="nextBtn">next question</button>
   ` 
-  const nextbtn = containerElement.querySelector("#nextbtn")
+  const nextbtn = containerElement.querySelector("#nextBtn")
   if (nextbtn) {
     nextbtn.addEventListener("click", () => {
+      checkAnswer(index)
       render(index + 1)
     })
   }

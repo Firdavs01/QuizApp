@@ -1,13 +1,13 @@
 "use strict"
 
-import { render } from "./render.js"
+import { render } from "./render.js "
 
 let questions = []
 let currentIndex = 0
 
 async function getQuestions() {
     try {
-        const response = await fetch("https://opentdb.com/api.php?amount=1")
+        const response = await fetch("https://opentdb.com/api.php?amount=10")
         if (!response.ok) {
             throw new Error(`HTTP error: ${response.status}`)
         }
