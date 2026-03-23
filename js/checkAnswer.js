@@ -1,21 +1,24 @@
-"use strict"
+"use strict";
 
-import { render } from "./render.js"
-import { questions } from "./api.js"
-import { containerElement } from "./elements.js"
+import { render } from "./render.js";
+import { questions } from "./api.js";
+import { containerElement } from "./elements.js";
+
 
 function checkAnswer(currentIndex) {
-    const valueOfTheInput = document.querySelector(`input[name="question-${currentIndex}"]:checked`)
-    const correctAnswer = questions[currentIndex].correct_answer
 
-    if (valueOfTheInput) {
+    const valueOfTheInput = document.querySelector(`input[name="question-${currentIndex}"]:checked`);
+    const correctAnswer = questions[currentIndex].correct_answer;
+
+    if (!valueOfTheInput) {
         alert("Choose answer");
         return
     }
 
-    const value = valueOfTheInput.value
+    const value = valueOfTheInput.value;
 
-    let winWindow = document.querySelector('.result-window')
+    let winWindow = document.querySelector('.result-window');
+
     if (!winWindow) {
         winWindow = document.createElement('div')
         winWindow.classList.add('result-window')
@@ -27,9 +30,8 @@ function checkAnswer(currentIndex) {
     } else {
         winWindow.innerHTML = `<h3>you lose</h3>`
     }
-
+    
     containerElement.innerHTML = ``
     render(currentIndex + 1)
 }
-
 export {checkAnswer}
