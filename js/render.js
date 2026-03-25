@@ -23,7 +23,7 @@ function render(index) {
 
   containerElement.innerHTML = `
     <div><strong>Вопрос ${index + 1}:</strong>${question.question}</div>
-    <ul>
+    <ul class="list">
       ${answers.map(ans => `
         <li>
           <label>
